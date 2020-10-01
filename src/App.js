@@ -1,13 +1,20 @@
 import React from "react";
-
 import "./App.css";
+
+import LeftStripe from "./components/LeftStripe";
+import RightStripe from "./components/RightStripe";
+import Container from "./components/Container";
+import Footer from "./styled/Footer";
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1>Under construction for a few days, sorry!</h1>
-      </header>
+    <div>
+      <div className='wrapper'>
+        <LeftStripe />
+        <Container />
+        <RightStripe />
+      </div>
+      <Footer />
     </div>
   );
 }
