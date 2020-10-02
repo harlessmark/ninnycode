@@ -1,23 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 
 import Logo from "../logo";
 import SignUpForm from "../pages/SignUpForm";
-import About from "./About";
+import PrivacyPolicy from "../pages/PrivacyPolicy";
 
 function Container() {
   return (
-    <div className='wrapper-padding'>
+    <div className='container-padding'>
       <Link to='/'>
         <Logo />
       </Link>
 
-      <SignUpForm
-      // flash={props.flash}
-      // isLoading={props.isLoading}
-      />
-
-      <About />
+      <Switch>
+        <Route exact path='/' component={SignUpForm} />
+        <Route exact path='/privacy' component={PrivacyPolicy} />
+      </Switch>
     </div>
   );
 }

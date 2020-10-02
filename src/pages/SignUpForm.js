@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import Cleave from "cleave.js/react";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/animations/shift-away.css";
 
 import Legend from "../styled/Legend";
 import Input from "../styled/Input";
 import Button from "../styled/Button";
 import Flash from "../styled/Flash";
+import P from "../styled/P";
+import U from "../styled/U";
 
 function SignUpForm() {
   const [inputs, setInputs] = useState({});
@@ -45,7 +50,7 @@ function SignUpForm() {
 
   return (
     <form onSubmit={submitHandler}>
-      <fieldset className='add-margin'>
+      <fieldset>
         <Legend>
           <label htmlFor='signup'>Username</label>
         </Legend>
@@ -60,7 +65,7 @@ function SignUpForm() {
         />
       </fieldset>
 
-      <fieldset className='add-margin'>
+      <fieldset>
         <Legend>
           <label htmlFor='signup'>Friend Code</label>
         </Legend>
@@ -78,6 +83,17 @@ function SignUpForm() {
       {flash && <Flash>{flash}</Flash>}
 
       <Button style={{ marginTop: "1rem" }}>Create</Button>
+
+      <P aboutText>
+        Ninny Code! helps you easily share your Nintendo Switch{" "}
+        <Tippy
+          content='Located in your Profile'
+          placement='left'
+          animation='shift-away'>
+          <U>friend code</U>
+        </Tippy>{" "}
+        by creating a short link for you to give to your friends.
+      </P>
     </form>
   );
 }
