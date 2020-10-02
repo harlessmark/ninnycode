@@ -1,13 +1,16 @@
 import Styled from "styled-components";
 
-const SwitchStripe = Styled.div`
-padding: .5rem;
-background-color: #799FCB;
-@media only screen and (min-width: 511px) {
-  border-bottom-right-radius: 10px;
-  border-top-right-radius: 10px;
+const RightStripe = Styled.div`
   padding: 1rem;
+  background-color: #799FCB;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  @media only screen and (max-width: 500px) {
+    padding: .5rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 `;
 
-export default SwitchStripe;
+export default RightStripe;

@@ -8,7 +8,7 @@ import U from "../styled/U";
 
 function About() {
   return (
-    <P className='animated fadeIn delay-1s'>
+    <P aboutText>
       Ninny Code! helps you easily share your Nintendo Switch{" "}
       <Tippy
         content='Located in your Profile'

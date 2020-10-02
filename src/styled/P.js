@@ -1,13 +1,14 @@
 import Styled from "styled-components";
 
 const P = Styled.p`
-  color: ${props => (props.footer ? "white" : "inherit")};
-  line-height: ${props => (props.big ? "1.75rem" : "1.5rem")};
-  font-size: ${props => props.big && "1.5rem"};
-  font-weight: ${props => props.big && "bold"};
-  font-family: 'Merriweather', serif;
-  @media only screen and (min-width: 510px) {
-    color: #1a1718;
+  margin: 0;
+  line-height: 1.5rem;
+  margin-top: ${props => (props.aboutText ? "2rem" : 0)};
+  font-family: ${props =>
+    props.footerText ? "inherit" : "Merriweather, serif"}; 
+  
+  @media only screen and (max-width: 510px) {
+    color: ${props => (props.footerText ? "white" : "inherit")};
   }
 `;
 

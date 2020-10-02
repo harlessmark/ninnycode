@@ -1,9 +1,9 @@
 import Styled from "styled-components";
 
 const Button = Styled.button`
-  padding: 1rem 2rem;
-  font-size: 1rem;
   color: white;
+  font-size: 1rem;
+  padding: 1rem 2rem;
   border-radius: 4px;
   background-color: #1a1718;
   border-color: transparent;

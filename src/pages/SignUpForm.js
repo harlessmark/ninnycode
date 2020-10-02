@@ -8,7 +8,7 @@ import Flash from "../styled/Flash";
 
 function SignUpForm(props) {
   return (
-    <form className='main-padding'>
+    <form>
       <fieldset>
         <Legend>
           <label htmlFor='signup'>Username</label>
@@ -27,6 +27,7 @@ function SignUpForm(props) {
         <Legend>
           <label htmlFor='signup'>Friend Code</label>
         </Legend>
+
         <Cleave
           htmlFor='signup'
           type='tel'
@@ -37,9 +38,7 @@ function SignUpForm(props) {
         />
       </fieldset>
 
-      {props.flash ? (
-        <Flash className='animated shake'>{props.flash}</Flash>
-      ) : null}
+      {props.flash ? <Flash>{props.flash}</Flash> : null}
 
       <div>
         <Button>Create</Button>

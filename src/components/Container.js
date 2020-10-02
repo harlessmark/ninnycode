@@ -5,7 +5,7 @@ import SignUpForm from "../pages/SignUpForm";
 import Logo from "../logo";
 import About from "./About";
 
-function Home(props) {
+function Container(props) {
   return (
     <div className='wrapper-padding'>
       <div>
@@ -21,9 +21,9 @@ function Home(props) {
         changeHandler={props.changeHandler}
       />
 
-      <About animation={props.animation} />
+      <About />
     </div>
   );
 }
 
-export default Home;
+export default Container;

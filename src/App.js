@@ -8,14 +8,14 @@ import Footer from "./styled/Footer";
 
 function App() {
   return (
-    <div>
-      <div className='wrapper'>
+    <>
+      <main className='wrapper'>
         <LeftStripe />
         <Container />
         <RightStripe />
-      </div>
+      </main>
       <Footer />
-    </div>
+    </>
   );
 }
 
