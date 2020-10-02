@@ -8,7 +8,7 @@ fieldset {
   font-family: "Merriweather", serif;
 }
 
-form > .add-margin {
+form > * {
   margin: 1rem 0;
 }
 
@@ -21,16 +21,16 @@ footer {
 }
 
 .cleave {
-  font-weight: bold;
-  background-color: transparent;
-  text-align: center;
-  border: none;
-  font-family: "Roboto";
-  color: #1a1718;
-  outline: none;
-  padding: 0.3rem 0;
-  font-size: 2rem;
   width: 100%;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  color: #1a1718;
+  font-weight: bold;
+  padding: 0.3rem 0;
+  text-align: center;
+  font-family: "Roboto";
+  background-color: transparent;
 }
 
 .logo {

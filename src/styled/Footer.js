@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import A from "./A";
 import P from "./P";
 
@@ -15,14 +15,13 @@ function Footer() {
             Buy Me a Coffee
           </A>{" "}
         </strong>
-        | <strong>Privacy Policy</strong> <br />
-        {/* <P>
+        |{" "}
         <Link
           to='/privacy'
           style={{ textDecoration: "none", color: "inherit" }}>
-          Privacy Policy
+          <strong>Privacy Policy</strong>
+          <br />
         </Link>
-      </P> */}
         Ninny Code! is not affilliated with Nintendo
       </P>
     </footer>

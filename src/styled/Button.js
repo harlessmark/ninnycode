@@ -7,6 +7,10 @@ const Button = Styled.button`
   border-radius: 4px;
   background-color: #1a1718;
   border-color: transparent;
+
+  :focus {
+    outline: none;
+  }
 `;
 
 export default Button;
