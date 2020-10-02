@@ -8,11 +8,9 @@ import About from "./About";
 function Container(props) {
   return (
     <div className='wrapper-padding'>
-      <div>
-        {/* <Link to='/'> */}
-        <Logo />
-        {/* </Link> */}
-      </div>
+      {/* <Link to='/'> */}
+      <Logo />
+      {/* </Link> */}
 
       <SignUpForm
         submitHandler={props.submitHandler}

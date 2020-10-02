@@ -3,14 +3,13 @@ body {
   justify-content: center;
 }
 
-form {
-  margin-top: 1rem;
-}
-
 fieldset {
   border: 2px dashed #1a1718;
   font-family: "Merriweather", serif;
-  margin-bottom: 2rem;
+}
+
+form > .add-margin {
+  margin: 1rem 0;
 }
 
 footer {

@@ -9,7 +9,7 @@ import Flash from "../styled/Flash";
 function SignUpForm(props) {
   return (
     <form>
-      <fieldset>
+      <fieldset className='add-margin'>
         <Legend>
           <label htmlFor='signup'>Username</label>
         </Legend>
@@ -23,7 +23,7 @@ function SignUpForm(props) {
         />
       </fieldset>
 
-      <fieldset>
+      <fieldset className='add-margin'>
         <Legend>
           <label htmlFor='signup'>Friend Code</label>
         </Legend>
@@ -40,9 +40,7 @@ function SignUpForm(props) {
 
       {props.flash ? <Flash>{props.flash}</Flash> : null}
 
-      <div>
-        <Button>Create</Button>
-      </div>
+      <Button className='add-margin'>Create</Button>
     </form>
   );
 }
