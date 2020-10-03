@@ -11,7 +11,7 @@ import Flash from "../styled/Flash";
 import P from "../styled/P";
 import U from "../styled/U";
 
-function SignUpForm() {
+function SignUpForm(props) {
   const [inputs, setInputs] = useState({});
   const [flash, setFlash] = useState(null);
 
@@ -24,7 +24,7 @@ function SignUpForm() {
     e.preventDefault();
 
     try {
-      const res = await fetch("https://ninnycode-b.herokuapp.com/api", {
+      const res = await fetch(props.api, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

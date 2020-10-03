@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <main className='wrapper'>
         <LeftStripe />
-        <Container className='container-padding' />
+        <Container />
         <RightStripe />
       </main>
       <Footer />

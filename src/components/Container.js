@@ -3,18 +3,27 @@ import { Link, Route, Switch } from "react-router-dom";
 
 import Logo from "../logo";
 import SignUpForm from "../pages/SignUpForm";
+import ProfileContainer from "../components/ProfileContainer";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
 
 function Container() {
+  const api = "https://ninnycode-b.herokuapp.com/api";
+
   return (
-    <div className='container-padding'>
+    <div className='container'>
       <Link to='/'>
         <Logo />
       </Link>
 
       <Switch>
-        <Route exact path='/' component={SignUpForm} />
+        <Route exact path='/' component={() => <SignUpForm api={api} />} />
         <Route exact path='/privacy' component={PrivacyPolicy} />
+
+        <Route
+          exact
+          path='/:username'
+          component={() => <ProfileContainer api={api} />}
+        />
       </Switch>
     </div>
   );

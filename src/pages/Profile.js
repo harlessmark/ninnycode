@@ -1,29 +1,53 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import Cleave from "cleave.js/react";
+import "animate.css";
 
-import { useParams } from "react-router-dom";
-
-import UserProfile from "../components/UserProfile";
-// import NoUser from "../components/NoUser";
-import Logo from "../logo";
+import Legend from "../styled/Legend";
+import Img from "../styled/Img";
+import P from "../styled/P";
+import U from "../styled/U";
 
 function Profile(props) {
-  const [user, setUser] = useState(null);
-  const { username } = useParams("/:username");
-
-  useEffect(() => {
-    fetch(props.url + "/" + username)
-      .then(res => res.json())
-      .then(user => {
-        if (!user.Error) {
-          setUser(user);
-        }
-      });
-  }, [props.url, username]);
+  const { avatar, username, friend_code } = props.user;
 
   return (
-    <div className='main-padding'>
-      {/* 
-      {user ? <UserProfile user={user} /> : <NoUser />} */}
+    <div className='user-profile'>
+      <Img
+        src={avatar}
+        alt='user avatar'
+        className='avatar animate__animated animate__pulse animate__infinite animate__slow'
+      />
+
+      <P style={{ margin: "1rem 0", fontSize: "2rem" }}>
+        {username}
+
+        {username === "mark" || username === "cait" ? (
+          <i className='fas fa-star fa-sm star animate__animated animate__slideInRight' />
+        ) : null}
+      </P>
+
+      <P style={{ margin: "2rem 0" }}>
+        Your friend wants to play! Add their friend code to your Nintendo
+        Switch.
+      </P>
+
+      <fieldset>
+        <Legend>Friend Code</Legend>
+
+        <Cleave
+          className='cleave'
+          type='tel'
+          value={friend_code}
+          options={{ blocks: [4, 4, 4], numericOnly: true }}
+        />
+      </fieldset>
+
+      <Link to='/' style={{ textDecoration: "none", color: "inherit" }}>
+        <P style={{ marginTop: "2rem" }}>
+          <U>Get your link</U>
+        </P>
+      </Link>
     </div>
   );
 }

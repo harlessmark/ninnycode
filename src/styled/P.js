@@ -6,8 +6,9 @@ const P = Styled.p`
   margin-top: ${props => (props.aboutText ? "1rem" : 0)};
   font-family: ${props =>
     props.footerText ? "inherit" : "Merriweather, serif"}; 
+
   
-  @media only screen and (max-width: 510px) {
+  @media only screen and (max-width: 500px) {
     color: ${props => (props.footerText ? "white" : "inherit")};
   }
 `;
