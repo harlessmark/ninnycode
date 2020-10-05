@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter } from "react-router-dom";
 import { UserProvider } from "./UserContext";
 import "animate.css";
 
@@ -13,18 +12,18 @@ import Footer from "./styled/Footer";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className='animate__animated animate__fadeIn animate__delay-1s'>
-        <main className='wrapper'>
-          <LeftStripe />
+    <div className='animate__animated animate__fadeIn animate__delay-1s'>
+      <div className='wrapper'>
+        <LeftStripe />
+        <main>
           <UserProvider>
             <Container />
           </UserProvider>
-          <RightStripe />
         </main>
-        <Footer />
+        <RightStripe />
       </div>
-    </BrowserRouter>
+      <Footer />
+    </div>
   );
 }
 
