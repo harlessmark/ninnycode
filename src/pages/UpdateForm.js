@@ -74,7 +74,9 @@ function UpdateForm(props) {
         onSubmit={submitHandler}
         onChange={changeHandler}
         className='margin'>
-        {props.user.avatar && <Img src={props.user.avatar} />}
+        {props.user.avatar && (
+          <Img src={props.user.avatar} className='avatar' />
+        )}
         <fieldset>
           <Legend>Friend Code *</Legend>
 
@@ -97,7 +99,11 @@ function UpdateForm(props) {
         </fieldset>
 
         {flash && flash.Success && <Flash success>{flash.Success}</Flash>}
-        {flash && flash.Error && <Flash>{flash.Error}</Flash>}
+        {flash && flash.Error && (
+          <Flash className='animate__animated animate__headShake'>
+            {flash.Error}
+          </Flash>
+        )}
 
         <Button>Update</Button>
       </form>

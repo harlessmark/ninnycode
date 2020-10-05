@@ -18,13 +18,11 @@ function Footer() {
             className='far fa-coffee-togo animate__animated animate__delay-4s animate__rotateOutUpRight'
             style={{ marginLeft: "5px" }}
           />
-        </A>{" "}
+        </A>
       </P>
 
       <P footerText>
-        <Link
-          to='/privacy'
-          style={{ textDecoration: "none", color: "inherit" }}>
+        <Link to='/privacy' className='strip-decoration'>
           Privacy Policy
           <br />
         </Link>
@@ -34,5 +32,3 @@ function Footer() {
 }
 
 export default Footer;
-
-// className='animate__animated animate__headShake'

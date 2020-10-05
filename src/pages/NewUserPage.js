@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { UserContext } from "../UserContext";
 import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -7,8 +7,13 @@ import Flash from "../styled/Flash";
 import Legend from "../styled/Legend";
 import P from "../styled/P";
 
-function NewUserPage(props) {
+function NewUserPage() {
   const [user] = useContext(UserContext);
+  const [flash, setFlash] = useState(false);
+
+  const clickHandler = () => {
+    setFlash(!flash);
+  };
 
   return (
     <div className='margin'>
@@ -18,7 +23,7 @@ function NewUserPage(props) {
       </P>
 
       <CopyToClipboard text={"https://ninnycode.com/" + user.username}>
-        <fieldset onClick={props.clickHandler}>
+        <fieldset onClick={clickHandler} className='pointer-cursor'>
           <Legend>Short Link</Legend>
           <P>
             ninnycode.com/
@@ -29,11 +34,15 @@ function NewUserPage(props) {
         </fieldset>
       </CopyToClipboard>
 
-      {props.flash && <Flash success>Copied to clipboard!</Flash>}
+      {flash && (
+        <Flash success className='animate__animated animate__bounceIn'>
+          copied to clipboard
+        </Flash>
+      )}
 
       <P style={{ margin: "1rem" }}>
         Hey, listen! Keep your update link safe. You can visit it to change your
-        details like your avatar.
+        details like your avatar and update code.
       </P>
 
       <Link

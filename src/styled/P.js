@@ -3,7 +3,6 @@ import Styled from "styled-components";
 const P = Styled.p`
   margin: 0;
   line-height: 1.5rem;
-  margin-top: ${props => (props.aboutText ? "1rem" : 0)};
   font-family: ${props =>
     props.footerText ? "inherit" : "Merriweather, serif"}; 
 

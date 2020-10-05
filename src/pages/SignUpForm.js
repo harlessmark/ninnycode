@@ -12,10 +12,10 @@ import Flash from "../styled/Flash";
 import P from "../styled/P";
 import U from "../styled/U";
 
-function SignUpForm(props) {
+function SignUpForm({ api }) {
   const [inputs, setInputs] = useState({});
   const [flash, setFlash] = useState(null);
-  const [setUser] = useContext(UserContext);
+  const [user, setUser] = useContext(UserContext);
 
   const changeHandler = e => {
     e.preventDefault();
@@ -25,28 +25,32 @@ function SignUpForm(props) {
   const submitHandler = async e => {
     e.preventDefault();
 
-    try {
-      const res = await fetch(props.api, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          username: inputs.username.toLowerCase(),
-          friend_code: inputs.friendCode.split(" ").join(""),
-        }),
-      });
+    if (!inputs.username || !inputs.friendCode) {
+      setFlash("Values can't be empty");
+    } else {
+      try {
+        const res = await fetch(api, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            username: inputs.username.toLowerCase(),
+            friend_code: inputs.friendCode.split(" ").join(""),
+          }),
+        });
 
-      const data = await res.json();
+        const data = await res.json();
 
-      if (data.Error) {
-        setFlash(data.Error);
-      } else {
-        setUser(data);
+        if (data.Error) {
+          setFlash(data.Error);
+        } else {
+          setUser(data);
+        }
+      } catch (err) {
+        setFlash(err);
       }
-    } catch (err) {
-      setFlash("Something went wrong");
     }
   };
 
@@ -82,11 +86,13 @@ function SignUpForm(props) {
         />
       </fieldset>
 
-      {flash && <Flash>{flash}</Flash>}
+      {flash && (
+        <Flash className='animate__animated animate__headShake'>{flash}</Flash>
+      )}
 
-      <Button style={{ margin: "1rem 0" }}>Create</Button>
+      <Button>Create</Button>
 
-      <P aboutText>
+      <P>
         Ninny Code! helps you easily share your Nintendo Switch{" "}
         <Tippy
           content='Located in your Profile'

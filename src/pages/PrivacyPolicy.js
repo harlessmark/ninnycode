@@ -6,7 +6,7 @@ import U from "../styled/U";
 
 function PrivacyPolicy() {
   return (
-    <P style={{ height: "23.2rem", paddingTop: "1rem" }}>
+    <P style={{ marginTop: "1rem" }}>
       Ninny Code! uses{" "}
       <U>
         <A

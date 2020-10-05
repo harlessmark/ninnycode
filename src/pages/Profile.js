@@ -12,7 +12,7 @@ function Profile(props) {
   const { avatar, username, friend_code } = props.user;
 
   return (
-    <div className='user-profile'>
+    <div className='margin'>
       <Img
         src={avatar}
         alt='user avatar'
@@ -27,7 +27,7 @@ function Profile(props) {
         ) : null}
       </P>
 
-      <P style={{ margin: "1rem 0 2rem 0" }}>
+      <P>
         Your friend wants to play! Add their friend code to your Nintendo
         Switch.
       </P>
@@ -44,7 +44,7 @@ function Profile(props) {
       </fieldset>
 
       <Link to='/' className='strip-decoration'>
-        <P style={{ marginTop: "2rem" }}>
+        <P>
           <U>Get your link</U>
         </P>
       </Link>
