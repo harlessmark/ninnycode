@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Route, Switch } from "react-router-dom";
 import Logo from "../logo";
 
-import SignUpForm from "../pages/SignUpForm";
+import NewUserContainer from "../components/NewUserContainer";
 import ProfileContainer from "../components/ProfileContainer";
 import UpdateContainer from "../components/UpdateContainer";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
@@ -17,7 +17,11 @@ function Container() {
       </Link>
 
       <Switch>
-        <Route exact path='/' component={() => <SignUpForm api={api} />} />
+        <Route
+          exact
+          path='/'
+          component={() => <NewUserContainer api={api} />}
+        />
         <Route exact path='/privacy' component={PrivacyPolicy} />
         <Route
           exact

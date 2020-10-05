@@ -12,7 +12,7 @@ import Footer from "./styled/Footer";
 
 function App() {
   return (
-    <div className='animate__animated animate__fadeIn animate__delay-1s'>
+    <div className='animate__animated animate__fadeIn animate__faster animate__delay-1s'>
       <div className='wrapper'>
         <LeftStripe />
         <main>

@@ -9,11 +9,8 @@ import Input from "../styled/Input";
 import Button from "../styled/Button";
 import Legend from "../styled/Legend";
 
-// TODO finish this pages
-
 function UpdateForm(props) {
   const [flash, setFlash] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [destroy, setDestroy] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
 
@@ -50,8 +47,6 @@ function UpdateForm(props) {
     // * updates user
     e.preventDefault();
 
-    debugger;
-
     fetch(`${props.url}/${props.user.username}/${props.user.update_code}`, {
       method: "PATCH",
       headers: {
@@ -64,30 +59,24 @@ function UpdateForm(props) {
         avatar: e.target.avatar.value,
       }),
     })
-      .then(setIsLoading(true))
       .then(res => res.json())
       .then(data => {
-        setIsLoading(false);
         setFlash(data);
       })
       .catch(e => {
-        console.log(e);
-
-        setIsLoading(false);
         setFlash({ Error: "Something went wrong" });
       });
   };
 
   return (
-    <>
-      <form onSubmit={submitHandler} onChange={changeHandler}>
-        {props.user.avatar && (
-          <Img src={props.user.avatar} style={{ paddingBottom: "2rem" }} />
-        )}
+    <div>
+      <form
+        onSubmit={submitHandler}
+        onChange={changeHandler}
+        className='margin'>
+        {props.user.avatar && <Img src={props.user.avatar} />}
         <fieldset>
-          <Legend>
-            Friend Code <span className='required'>*</span>
-          </Legend>
+          <Legend>Friend Code *</Legend>
 
           <Cleave
             className='cleave'
@@ -98,9 +87,7 @@ function UpdateForm(props) {
         </fieldset>
 
         <fieldset>
-          <Legend>
-            Update Code <span className='required'>*</span>
-          </Legend>
+          <Legend>Update Code *</Legend>
           <Input name='updateCode' defaultValue={props.user.update_code} />
         </fieldset>
 
@@ -109,24 +96,14 @@ function UpdateForm(props) {
           <Input name='avatar' defaultValue={props.user.avatar} />
         </fieldset>
 
-        {flash && flash.Success && (
-          <Flash success className='animated bounceIn'>
-            {flash.Success}
-          </Flash>
-        )}
-        {flash && flash.Error && (
-          <Flash className='animated shake'>{flash.Error}</Flash>
-        )}
+        {flash && flash.Success && <Flash success>{flash.Success}</Flash>}
+        {flash && flash.Error && <Flash>{flash.Error}</Flash>}
 
-        <Button style={{ marginBottom: "2rem" }} isLoading={isLoading}>
-          Update{" "}
-        </Button>
+        <Button>Update</Button>
       </form>
 
       {destroy ? (
-        <P
-          className='margin-bottom animated heartBeat'
-          onClick={destroyHandler}>
+        <P onClick={destroyHandler}>
           <U red>Are you sure?</U>
         </P>
       ) : (
@@ -134,7 +111,7 @@ function UpdateForm(props) {
           <U>Delete account</U>
         </P>
       )}
-    </>
+    </div>
   );
 }
 

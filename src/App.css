@@ -16,10 +16,6 @@ footer {
   flex-direction: column;
 }
 
-form > * {
-  margin: 1rem 0;
-}
-
 .avatar {
   border-radius: 50%;
 }
@@ -45,9 +41,13 @@ form > * {
   margin: 2rem 1rem;
 }
 
-.pointer-cursor {
-  cursor: pointer;
+.margin > * {
+  margin: 1rem 0;
 }
+
+/* .pointer-cursor {
+  cursor: pointer;
+} */
 
 .star {
   bottom: 4px;

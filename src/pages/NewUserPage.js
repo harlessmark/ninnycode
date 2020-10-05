@@ -1,57 +1,58 @@
-import React from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../UserContext";
 import { Link } from "react-router-dom";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 
 import Flash from "../styled/Flash";
-import Sub from "../styled/Sub";
 import Legend from "../styled/Legend";
 import P from "../styled/P";
 
-function NewUser(props) {
+function NewUserPage(props) {
+  const [user] = useContext(UserContext);
+
   return (
-    <div className='main-padding'>
-      <P>
+    <div className='margin'>
+      <P style={{ margin: "1rem" }}>
         Share your short link with your friends. They will be able to view your
         friend code!
       </P>
 
-      <CopyToClipboard
-        className='pointer-cursor'
-        text={"https://ninnycode.com/" + props.user.username}>
+      <CopyToClipboard text={"https://ninnycode.com/" + user.username}>
         <fieldset onClick={props.clickHandler}>
           <Legend>Short Link</Legend>
-          <P big>
+          <P>
             ninnycode.com/
             <br />
-            {props.user.username}
+            {user.username}
           </P>
-          <Sub style={{ color: "#1a1718" }}>copy to clipboard</Sub>
+          <sub>copy to clipboard</sub>
         </fieldset>
       </CopyToClipboard>
 
       {props.flash && <Flash success>Copied to clipboard!</Flash>}
 
-      <P>
+      <P style={{ margin: "1rem" }}>
         Hey, listen! Keep your update link safe. You can visit it to change your
         details like your avatar.
       </P>
+
       <Link
-        to={{ pathname: `/${props.user.username}/${props.user.update_code}` }}
-        style={{ textDecoration: "none", color: "inherit" }}>
+        to={{ pathname: `/${user.username}/${user.update_code}` }}
+        className='strip-decoration'>
         <fieldset>
           <Legend>Update Link</Legend>
-          <P big>
+          <P>
             ninnycode.com/
             <br />
-            {props.user.username}/
+            {user.username}/
             <br />
-            {props.user.update_code}
+            {user.update_code}
           </P>
-          <Sub style={{ color: "#1a1718" }}>update details</Sub>
+          <sub>update details</sub>
         </fieldset>
       </Link>
     </div>
   );
 }
 
-export default NewUser;
+export default NewUserPage;

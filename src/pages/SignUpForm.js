@@ -15,7 +15,7 @@ import U from "../styled/U";
 function SignUpForm(props) {
   const [inputs, setInputs] = useState({});
   const [flash, setFlash] = useState(null);
-  const [user, setUser] = useContext(UserContext);
+  const [setUser] = useContext(UserContext);
 
   const changeHandler = e => {
     e.preventDefault();
@@ -51,7 +51,7 @@ function SignUpForm(props) {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={submitHandler} className='margin'>
       <fieldset>
         <Legend>
           <label htmlFor='signup'>Username</label>
