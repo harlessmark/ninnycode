@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import Profile from "../pages/Profile";
-// import NoUser from "../components/NoUser";
+import NoUserFound from "../pages/NoUserFound";
 
 function ProfileContainer(props) {
   const [user, setUser] = useState(null);
@@ -10,15 +10,19 @@ function ProfileContainer(props) {
 
   useEffect(() => {
     const getUser = async () => {
-      const res = await fetch(props.api + "/" + username);
-      const data = await res.json();
+      try {
+        const res = await fetch(props.api + "/" + username);
+        const data = await res.json();
 
-      setUser(await data);
+        if (!data.Error) setUser(data);
+      } catch (err) {
+        console.log(err);
+      }
     };
     getUser();
   }, [props.api, username]);
 
-  return <div> {user ? <Profile user={user} /> : null}</div>;
+  return <div>{user ? <Profile user={user} /> : <NoUserFound />}</div>;
 }
 
 export default ProfileContainer;

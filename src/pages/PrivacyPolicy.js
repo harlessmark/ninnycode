@@ -6,7 +6,7 @@ import U from "../styled/U";
 
 function PrivacyPolicy() {
   return (
-    <P style={{ height: "22.2rem", paddingTop: "1rem" }}>
+    <P style={{ height: "23.2rem", paddingTop: "1rem" }}>
       Ninny Code! uses{" "}
       <U>
         <A
@@ -21,6 +21,9 @@ function PrivacyPolicy() {
       their Nintendo Switch friend code. No additional information is collected.
       Please email Mark at 2spacemilk [at] gmail dotCom if you have any
       questions about this privacy policy.
+      <br />
+      <br />
+      Ninny Code! is not affiliated with Nintendo.
     </P>
   );
 }

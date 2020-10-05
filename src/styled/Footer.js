@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "animate.css";
+
 import A from "./A";
 import P from "./P";
-import "animate.css";
 
 function Footer() {
   return (
@@ -14,7 +15,7 @@ function Footer() {
           rel='noopener noreferrer'>
           <strong>Buy Me a Coffee</strong>
           <i
-            class='far fa-coffee-togo animate__animated animate__delay-2s animate__rotateOutUpRight'
+            className='far fa-coffee-togo animate__animated animate__delay-4s animate__rotateOutUpRight'
             style={{ marginLeft: "5px" }}
           />
         </A>{" "}

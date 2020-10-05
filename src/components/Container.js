@@ -1,9 +1,10 @@
 import React from "react";
 import { Link, Route, Switch } from "react-router-dom";
-
 import Logo from "../logo";
+
 import SignUpForm from "../pages/SignUpForm";
 import ProfileContainer from "../components/ProfileContainer";
+import UpdateContainer from "../components/UpdateContainer";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
 
 function Container() {
@@ -18,11 +19,15 @@ function Container() {
       <Switch>
         <Route exact path='/' component={() => <SignUpForm api={api} />} />
         <Route exact path='/privacy' component={PrivacyPolicy} />
-
         <Route
           exact
           path='/:username'
           component={() => <ProfileContainer api={api} />}
+        />
+        <Route
+          exact
+          path='/:username/:updateCode'
+          render={() => <UpdateContainer api={api} />}
         />
       </Switch>
     </div>

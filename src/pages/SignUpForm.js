@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../UserContext";
 import Cleave from "cleave.js/react";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
@@ -14,6 +15,7 @@ import U from "../styled/U";
 function SignUpForm(props) {
   const [inputs, setInputs] = useState({});
   const [flash, setFlash] = useState(null);
+  const [user, setUser] = useContext(UserContext);
 
   const changeHandler = e => {
     e.preventDefault();
@@ -41,7 +43,7 @@ function SignUpForm(props) {
       if (data.Error) {
         setFlash(data.Error);
       } else {
-        // setUser(data);
+        setUser(data);
       }
     } catch (err) {
       setFlash("Something went wrong");
@@ -82,7 +84,7 @@ function SignUpForm(props) {
 
       {flash && <Flash>{flash}</Flash>}
 
-      <Button style={{ marginTop: "1rem" }}>Create</Button>
+      <Button style={{ margin: "1rem 0" }}>Create</Button>
 
       <P aboutText>
         Ninny Code! helps you easily share your Nintendo Switch{" "}

@@ -23,11 +23,11 @@ function Profile(props) {
         {username}
 
         {username === "mark" || username === "cait" ? (
-          <i className='fas fa-star fa-sm star animate__animated animate__slideInRight' />
+          <i className='fas fa-star fa-sm star' />
         ) : null}
       </P>
 
-      <P style={{ margin: "2rem 0" }}>
+      <P style={{ margin: "1rem 0 2rem 0" }}>
         Your friend wants to play! Add their friend code to your Nintendo
         Switch.
       </P>
@@ -43,7 +43,7 @@ function Profile(props) {
         />
       </fieldset>
 
-      <Link to='/' style={{ textDecoration: "none", color: "inherit" }}>
+      <Link to='/' className='strip-decoration'>
         <P style={{ marginTop: "2rem" }}>
           <U>Get your link</U>
         </P>
