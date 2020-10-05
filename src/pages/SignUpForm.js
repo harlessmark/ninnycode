@@ -15,7 +15,7 @@ import U from "../styled/U";
 function SignUpForm({ api }) {
   const [inputs, setInputs] = useState({});
   const [flash, setFlash] = useState(null);
-  const [user, setUser] = useContext(UserContext);
+  const [, setUser] = useContext(UserContext);
 
   const changeHandler = e => {
     e.preventDefault();

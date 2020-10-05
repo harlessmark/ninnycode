@@ -1,32 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { UserContext } from "../UserContext";
+import { useParams } from "react-router-dom";
 
-// import Flash from "../components/Flash";
+import NoPermission from "../pages/NoPermission";
 import UpdateForm from "../pages/UpdateForm";
 
 function UpdateContainer({ api }) {
-  const [user, setUser] = useState(null);
   const { username, updateCode } = useParams("/:username/:updateCode");
+  const [user, setUser] = useContext(UserContext);
 
   useEffect(() => {
-    fetch(`${api}/${username}/${updateCode}`)
-      .then(res => res.json())
-      .then(data => setUser(data))
-      .catch(setUser({ Error: "Something went wrong" }));
-  }, [api, username, updateCode]);
+    const getUser = async () => {
+      try {
+        const res = await fetch(`${api}/${username}/${updateCode}`);
+        const data = await res.json();
 
-  return (
-    <div className='main-padding'>
-      <Link to='/' style={{ textDecoration: "none", color: "inherit" }}></Link>
-
-      {
-        user?.Error && null
-        // <Flash className='animated shake delay-1s'>{user.Error}</Flash>
+        if (!data.Error) {
+          setUser(await data);
+        }
+      } catch (err) {
+        setUser({ Error: "Something went wrong" });
       }
+    };
+    getUser();
+  }, [api, username, updateCode, setUser]);
 
-      {user && <UpdateForm user={user} url={api} />}
-    </div>
-  );
+  return <div>{user ? <UpdateForm api={api} /> : <NoPermission />}</div>;
 }
 
 export default UpdateContainer;

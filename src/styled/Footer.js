@@ -9,13 +9,10 @@ function Footer() {
   return (
     <footer>
       <P footerText>
-        <A
-          href='https://buymeacoffee.com/2spacemilk'
-          target='_blank'
-          rel='noopener noreferrer'>
+        <A href='https://buymeacoffee.com/2spacemilk' rel='noopener noreferrer'>
           <strong>Buy Me a Coffee</strong>
           <i
-            className='far fa-coffee-togo animate__animated animate__delay-4s animate__rotateOutUpRight'
+            className='far fa-coffee-togo animate__animated animate__delay-5s animate__rotateOutUpRight'
             style={{ marginLeft: "5px" }}
           />
         </A>

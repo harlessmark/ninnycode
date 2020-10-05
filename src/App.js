@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
-import { UserProvider } from "./UserContext";
+import ReactGa from "react-ga";
 import "animate.css";
 
 import LeftStripe from "./components/LeftStripe";
@@ -8,17 +8,19 @@ import RightStripe from "./components/RightStripe";
 import Container from "./components/Container";
 import Footer from "./styled/Footer";
 
-// TODO add analytics
-
 function App() {
+  useEffect(() => {
+    // Google Analytics
+    ReactGa.initialize("UA-179614081-1");
+    ReactGa.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   return (
     <div className='animate__animated animate__fadeIn animate__faster animate__delay-1s'>
       <div className='wrapper'>
         <LeftStripe />
         <main>
-          <UserProvider>
-            <Container />
-          </UserProvider>
+          <Container />
         </main>
         <RightStripe />
       </div>
