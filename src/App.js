@@ -1,13 +1,28 @@
 import React from "react";
-
 import "./App.css";
+import { UserProvider } from "./UserContext";
+import "animate.css";
+
+import LeftStripe from "./components/LeftStripe";
+import RightStripe from "./components/RightStripe";
+import Container from "./components/Container";
+import Footer from "./styled/Footer";
+
+// TODO add analytics
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <h1>Under construction for a few days, sorry!</h1>
-      </header>
+    <div className='animate__animated animate__fadeIn animate__faster animate__delay-1s'>
+      <div className='wrapper'>
+        <LeftStripe />
+        <main>
+          <UserProvider>
+            <Container />
+          </UserProvider>
+        </main>
+        <RightStripe />
+      </div>
+      <Footer />
     </div>
   );
 }
