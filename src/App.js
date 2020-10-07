@@ -11,7 +11,7 @@ import Footer from "./styled/Footer";
 function App() {
   useEffect(() => {
     // Google Analytics
-    ReactGa.initialize("UA-179614081-1");
+    ReactGa.initialize("UA-179501427-3");
     ReactGa.pageview(window.location.pathname + window.location.search);
   }, []);
 
